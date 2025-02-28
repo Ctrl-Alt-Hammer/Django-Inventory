@@ -21,7 +21,7 @@ def new_item(request):
            new_item = form.save(commit=False)
            new_item.author = request.user
            new_item.save()
-           return redirect('inventory:list')#NOT WORKING
+           return redirect('inventory:list')
     else:
         form = forms.CreateInventory()
     return render(request, 'inventory/add_new_item.html', {'form': form})

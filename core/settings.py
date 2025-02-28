@@ -50,7 +50,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
+# SESSION TIMEOUT SETTINGS
+SESSION_EXPIRE_SECONDS = 3600 # 1 hour
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True # Expire after 1 hour of inactivity
+SESSION_TIMEOUT_REDIRECT = 'users:login' # Redirect to login page
 
 ROOT_URLCONF = 'core.urls'
 
@@ -134,3 +140,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
