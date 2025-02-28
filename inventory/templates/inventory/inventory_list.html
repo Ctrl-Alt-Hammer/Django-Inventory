@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Inventory
+{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Inventory</h1>
+    {% for inventory in inventorys %}
+        <article>
+            <h2>
+                <a href="{% url 'inventory:page' slug=inventory.slug  %}">
+                    {{ inventory.name }}
+                </a>
+            </h2>
+            <p>{{ inventory.description }}</p>
+            <p>{{ inventory.price }}</p>
+            <p>{{ inventory.quantity }} by {{ inventory.author }}</p>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}
